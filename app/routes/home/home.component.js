@@ -4,26 +4,26 @@ import { FormattedMessage } from 'react-intl';
 import envConfig from 'env-config';
 
 import messages from './home.messages';
-import MaintainerList from './maintainerList/maintainerList.component';
+import TeamsList from './teamsList/teamsList.component';
 import LanguageSelector from './languageSelector/languageSelector.component';
 
 
 export default class Home extends PureComponent {
   static propTypes = {
-    maintainers: PropTypes.object,
+    teams: PropTypes.object,
     language: PropTypes.string.isRequired,
-    getMaintainers: PropTypes.func.isRequired,
+    getTeams: PropTypes.func.isRequired,
     setLanguage: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
   };
 
   componentWillMount() {
-    this.props.getMaintainers(this.props.language);
+    this.props.getTeams(this.props.language);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.language !== this.props.language) {
-      this.props.getMaintainers(nextProps.language);
+      this.props.getTeams(nextProps.language);
     }
   }
 
@@ -41,7 +41,7 @@ export default class Home extends PureComponent {
 
         <div>Environment: {envConfig.name}</div>
 
-        <MaintainerList items={this.props.maintainers} />
+        <TeamsList items={this.props.teams} />
 
         <LanguageSelector
           language={this.props.language}

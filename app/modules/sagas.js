@@ -1,7 +1,7 @@
-import maintainersSaga from './maintainers/maintainers.sagas';
+import teamsSaga from './teams/teams.sagas';
 
 export default function* rootSaga() {
   yield [
-    maintainersSaga(),
+    teamsSaga(),
   ];
 }

@@ -1,7 +1,7 @@
-import { ACTION_TYPES } from './maintainers.constants';
+import { ACTION_TYPES } from './teams.constants';
 
 
-export function getMaintainers(language) {
+export function getTeams(language) {
   return {
     type: ACTION_TYPES.GET,
     payload: {
@@ -10,14 +10,14 @@ export function getMaintainers(language) {
   };
 }
 
-export function getMaintainersSuccess(data) {
+export function getTeamsSuccess(data) {
   return {
     type: ACTION_TYPES.GET_SUCCESS,
     payload: data,
   };
 }
 
-export function getMaintainersError(error) {
+export function getTeamsError(error) {
   return {
     type: ACTION_TYPES.GET_FAIL,
     payload: error,

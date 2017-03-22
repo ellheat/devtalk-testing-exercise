@@ -2,13 +2,13 @@ import { combineReducers } from 'redux-immutable';
 
 import routerReducer from './router/router.reducer';
 import localesReducer from './locales/locales.reducer';
-import maintainersReducer from './maintainers/maintainers.reducer';
+import teamsReducer from './teams/teams.reducer';
 
 
 export default function createReducer() {
   return combineReducers({
     route: routerReducer,
-    maintainers: maintainersReducer,
+    teams: teamsReducer,
     locales: localesReducer,
   });
 }

@@ -1,7 +1,7 @@
 import { fromJS, Record, List } from 'immutable';
 import { createReducer } from 'reduxsauce';
 
-import { ACTION_TYPES } from './maintainers.constants';
+import { ACTION_TYPES } from './teams.constants';
 
 
 const StateRecord = new Record({
