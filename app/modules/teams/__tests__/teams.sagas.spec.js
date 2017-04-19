@@ -1,3 +1,7 @@
-/**
- * Created by danielleszczynski on 19.04.2017.
- */
+import { expect } from 'chai';
+import { fromJS } from 'immutable';
+import { fetchTeamsSaga, getTeamsSaga } from '../teams.sagas';
+
+describe('Teams: sagas', () => {
+
+});
