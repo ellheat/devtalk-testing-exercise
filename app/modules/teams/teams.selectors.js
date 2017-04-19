@@ -2,8 +2,6 @@ import { createSelector } from 'reselect';
 import { toNumber, round } from 'lodash';
 
 const MULTIPLIER = 1000000;
-const COUNT_OF_TEAMS = 20;
-
 
 const selectTeamsDomain = state => state.get('teams');
 
