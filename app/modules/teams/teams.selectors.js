@@ -21,7 +21,7 @@ export const filterTeamsListBySquadValue = createSelector(
   (teams, rangeValues) => teams.filter((team) => {
     const squadMarket = toNumber(team.get('squadMarketValue').replace(' €', '').replace(/,/g, ''));
 
-    return squadMarket > rangeValues.min() * MULTIPLIER && squadMarket < rangeValues.max() * MULTIPLIER;
+    return squadMarket >= rangeValues.min() * MULTIPLIER && squadMarket < rangeValues.max() * MULTIPLIER;
   })
 );
 
@@ -33,6 +33,6 @@ export const selectArithmeticAverage = createSelector(
       return prevVal + squadMarket;
     }, 0);
 
-    return round(sum / COUNT_OF_TEAMS);
+    return round(sum / state.size);
   }
 );
