@@ -1,5 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
+import { Map } from 'immutable';
 import { shallow } from 'enzyme';
 import { spy } from 'sinon';
 
@@ -9,11 +10,10 @@ import { RangeSelector, MIN_VALUE, MAX_VALUE } from '../rangeSelector.component'
 
 describe('RangeSelector: Component', () => {
   const defaultProps = {
-    rangeValues: {
+    rangeValues: Map({
       min: 0,
       max: 10,
-      toJS: () => {},
-    },
+    }),
     setRangeValues: () => {},
     intl: {
       messages: {
