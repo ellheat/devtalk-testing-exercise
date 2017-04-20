@@ -1,20 +1,20 @@
 import { expect } from 'chai';
 import { fromJS, Map } from 'immutable';
-import { filterTeamsListBySquadValue, selectArithmeticAverage, selectRangeValues, selectTeamsList } from '../teams.selectors';
+import { selectTeamsListBySquadValue, selectArithmeticAverage, selectRangeValues, selectTeamsList } from '../teams.selectors';
 
 describe('Teams: selectors', () => {
   const list = fromJS([
-    { name: 'Manchester United', squadMarketValue: '500000 €' },
-    { name: 'Leicester City', squadMarketValue: '400000 €' },
-    { name: 'West Ham United', squadMarketValue: '300000 €' },
-    { name: 'Sunderland', squadMarketValue: '200000 €' },
-    { name: 'Sunderland', squadMarketValue: '100000 €' },
-    { name: 'Burnley', squadMarketValue: '50000 €' },
+    { name: 'Manchester United', squadMarketValue: '5 €' },
+    { name: 'Leicester City', squadMarketValue: '4 €' },
+    { name: 'West Ham United', squadMarketValue: '3 €' },
+    { name: 'Sunderland', squadMarketValue: '2 €' },
+    { name: 'Stoke', squadMarketValue: '1 €' },
+    { name: 'Burnley', squadMarketValue: '0.5 €' },
   ]);
-  const rangeValues = {
-    min: () => 199999,
-    max: () => 400001,
-  };
+  const rangeValues = Map({
+    min: 0,
+    max: 10,
+  });
   const mockedState = Map({
     teams: Map({
       list,
@@ -33,8 +33,14 @@ describe('Teams: selectors', () => {
   });
 
   describe('selectRangeValues', () => {
-    it('should range values', () => {
+    it('should select range values', () => {
       expect(selectRangeValues(mockedState)).to.deep.equal(rangeValues);
+    });
+  });
+
+  describe('selectTeamsListBySquadValue', () => {
+    it('should return list', () => {
+      expect(selectTeamsListBySquadValue(mockedState).toJS()).to.deep.equal(list.toJS());
     });
   });
 });

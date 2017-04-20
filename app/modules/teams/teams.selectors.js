@@ -13,18 +13,17 @@ export const selectRangeValues = createSelector(
   selectTeamsDomain, state => state.get('rangeValues')
 );
 
-export const filterTeamsListBySquadValue = createSelector(
+export const selectTeamsListBySquadValue = createSelector(
   selectTeamsList,
   selectRangeValues,
   (teams, rangeValues) => teams.filter((team) => {
     const squadMarket = toNumber(team.get('squadMarketValue').replace(' €', '').replace(/,/g, ''));
-
-    return squadMarket >= rangeValues.min() * MULTIPLIER && squadMarket < rangeValues.max() * MULTIPLIER;
+    return squadMarket >= rangeValues.get('min') * MULTIPLIER && squadMarket < rangeValues.get('max') * MULTIPLIER;
   })
 );
 
 export const selectArithmeticAverage = createSelector(
-  filterTeamsListBySquadValue, state => {
+  selectTeamsListBySquadValue, state => {
     const sum = state.reduce((prevVal, element) => {
       const squadMarket = toNumber(element.get('squadMarketValue').replace(' €', '').replace(/,/g, ''));
 
