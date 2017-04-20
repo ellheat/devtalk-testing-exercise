@@ -20,8 +20,8 @@ describe('RangeSelector: Component', () => {
         price: {
           id: 'test',
           defaultMessage: 'test',
-        }
-      }
+        },
+      },
     },
   };
 

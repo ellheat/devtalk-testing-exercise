@@ -9,7 +9,7 @@ import messages from '../averageValue.messages';
 
 describe('AverageValue: Component', () => {
   const defaultProps = {
-    arithmeticAverage: 1
+    arithmeticAverage: 1,
   };
 
   const component = (props) => (
