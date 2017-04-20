@@ -1,11 +1,11 @@
 import { expect } from 'chai';
-import { fromJS } from 'immutable';
+import { fromJS, Map } from 'immutable';
 
 import teamsReducer from '../teams.reducer';
 import { teamsActionsTypes } from '../teams.actions';
 
 describe('Teams: reducer', () => {
-  const state = fromJS({
+  const state = Map({
     list: [],
     rangeValues: {
       min: 0,
@@ -38,8 +38,8 @@ describe('Teams: reducer', () => {
     });
 
     it('should set min and max values on SET_RANGE_VALUES', () => {
-      const values = { min: 1, max: 2 };
-      const expectedState = state.set('rangeValues', values);
+      const values = { min: 1, max: 3 };
+      const expectedState = state.set('rangeValues', Map(values));
       const action = { values, type: teamsActionsTypes.SET_RANGE_VALUES };
       expect(teamsReducer(state, action).toJS()).to.deep.equal(expectedState.toJS());
     });

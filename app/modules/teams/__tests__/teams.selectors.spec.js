@@ -15,6 +15,7 @@ describe('Teams: selectors', () => {
     min: 0,
     max: 10,
   });
+
   const mockedState = Map({
     teams: Map({
       list,
@@ -22,6 +23,16 @@ describe('Teams: selectors', () => {
     }),
   });
 
+  const getState = (rangeValues) => {
+    return Map({
+      teams: Map({
+        list,
+        rangeValues,
+      }),
+      rangeValues,
+    });
+  };
+  const MULTIPLIER = 1000000;
 
   describe('selectTeamsList', () => {
     it('should select list', () => {
@@ -40,7 +51,33 @@ describe('Teams: selectors', () => {
 
   describe('selectTeamsListBySquadValue', () => {
     it('should return list', () => {
-      expect(selectTeamsListBySquadValue(mockedState).toJS()).to.deep.equal(list.toJS());
+      const state = getState(Map({min: 0 / MULTIPLIER, max: 10 / MULTIPLIER}));
+      expect(selectTeamsListBySquadValue(state).toJS()).to.deep.equal(list.toJS());
+    });
+
+    it('should return empty list', () => {
+      const state = getState(Map({min: 0 / MULTIPLIER, max: 0 / MULTIPLIER}));
+      expect(selectTeamsListBySquadValue(state).toJS()).to.deep.equal([]);
+    });
+
+    it('should return two elements list', () => {
+      const state = getState(Map({min: 2 / MULTIPLIER, max: 3 / MULTIPLIER}));
+      const expectedLengthOfList = 2;
+      expect(selectTeamsListBySquadValue(state).toJS().length).to.equal(expectedLengthOfList);
+    });
+  });
+
+  describe('selectArithmeticAverage', () => {
+    it('should correct avarage value', () => {
+      const state = getState(Map({min: 1 / MULTIPLIER, max: 3 / MULTIPLIER}));
+      const expectedAverage = 2;
+      expect(selectArithmeticAverage(state)).to.deep.equal(expectedAverage);
+    });
+
+    it('should correct avarage value', () => {
+      const state = getState(Map({min: 0 / MULTIPLIER, max: 0 / MULTIPLIER}));
+      const expectedAverage = 0;
+      expect(selectArithmeticAverage(state)).to.deep.equal(expectedAverage);
     });
   });
 });

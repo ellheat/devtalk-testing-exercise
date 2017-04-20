@@ -16,7 +16,8 @@ const INITIAL_STATE = new StateRecord();
 
 const teamsSuccess = (state = INITIAL_STATE, action) => state.set('list', fromJS(action.payload.teams));
 const teamsError = (state = INITIAL_STATE, action) => state.set('error', action.payload.error);
-const rangeValuesSuccess = (state = INITIAL_STATE, action) => state.set('rangeValues', fromJS(action.values));
+const rangeValuesSuccess = (state = INITIAL_STATE, action) => state
+  .set('rangeValues', Map({min: action.values.min, max: action.values.max}));
 
 const HANDLERS = {
   [teamsActionsTypes.GET_TEAMS_SUCCESS]: teamsSuccess,
