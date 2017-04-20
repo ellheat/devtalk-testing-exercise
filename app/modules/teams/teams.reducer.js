@@ -1,11 +1,11 @@
-import { fromJS, Record, List } from 'immutable';
+import { Record, List, Map, fromJS } from 'immutable';
 import { createReducer } from 'reduxsauce';
 
 import { teamsActionsTypes } from './teams.actions';
 
 const StateRecord = new Record({
   list: List(),
-  rangeValues: fromJS({
+  rangeValues: Map({
     min: 0,
     max: 600,
   }),
