@@ -18,7 +18,7 @@ export const selectTeamsListBySquadValue = createSelector(
   selectRangeValues,
   (teams, rangeValues) => teams.filter((team) => {
     const squadMarket = toNumber(team.get('squadMarketValue').replace(' €', '').replace(/,/g, ''));
-    return squadMarket >= rangeValues.get('min') * MULTIPLIER && squadMarket < rangeValues.get('max') * MULTIPLIER;
+    return squadMarket >= rangeValues.get('min') * MULTIPLIER && squadMarket <= rangeValues.get('max') * MULTIPLIER;
   })
 );
 
