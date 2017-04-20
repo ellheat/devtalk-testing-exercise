@@ -14,10 +14,6 @@ export class RangeSelector extends PureComponent {
     intl: PropTypes.object.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   changeRangeValue = (value) => {
     this.props.setRangeValues(value);
   };

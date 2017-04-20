@@ -10,10 +10,6 @@ export default class TeamsList extends PureComponent {
     items: PropTypes.object.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="teams-list">
