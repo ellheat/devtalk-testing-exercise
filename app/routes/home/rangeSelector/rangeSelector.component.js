@@ -4,10 +4,10 @@ import InputRange from 'react-input-range';
 
 import messages from './rangeSelector.messages';
 
-const MIN_VALUE = 0;
-const MAX_VALUE = 600;
+export const MIN_VALUE = 0;
+export const MAX_VALUE = 600;
 
-class RangeSelector extends PureComponent {
+export class RangeSelector extends PureComponent {
   static propTypes = {
     rangeValues: PropTypes.object,
     setRangeValues: PropTypes.func.isRequired,
@@ -30,7 +30,7 @@ class RangeSelector extends PureComponent {
           minValue={MIN_VALUE}
           formatLabel={value => `${value} ${this.props.intl.messages[messages.price.id]}`}
           value={this.props.rangeValues.toJS()}
-          onChange={value => this.changeRangeValue(value)}
+          onChange={this.changeRangeValue}
         />
       </div>
     );
