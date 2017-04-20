@@ -22,7 +22,6 @@ describe('Teams: selectors', () => {
     }),
   });
 
-
   describe('selectTeamsList', () => {
     it('should select list', () => {
       expect(selectTeamsList(mockedState).toJS()).to.deep.equal(list.toJS());

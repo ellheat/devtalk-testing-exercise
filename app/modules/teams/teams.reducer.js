@@ -21,7 +21,7 @@ const rangeValuesSuccess = (state = INITIAL_STATE, action) => state.set('rangeVa
 const HANDLERS = {
   [teamsActionsTypes.GET_TEAMS_SUCCESS]: teamsSuccess,
   [teamsActionsTypes.SET_RANGE_VALUES]: rangeValuesSuccess,
-  [teamsActionsTypes.GET_TEAMS_ERORR]: teamsError,
+  [teamsActionsTypes.GET_TEAMS_ERROR]: teamsError,
 };
 
 export default createReducer(INITIAL_STATE, HANDLERS);
