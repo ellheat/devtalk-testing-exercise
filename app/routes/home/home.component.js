@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './home.messages';
 import AverageValue from './averageValue/averageValue.component';
 import TeamsList from './teamsList/teamsList.component';
-import RangeSelector from './rangeSelector/rangeSelector.component';
+import { RangeSelector } from './rangeSelector/rangeSelector.component';
 import LanguageSelector from './languageSelector/languageSelector.component';
 
 
