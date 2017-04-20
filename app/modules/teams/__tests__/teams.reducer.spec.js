@@ -30,10 +30,10 @@ describe('Teams: reducer', () => {
       expect(teamsReducer(state, action).toJS()).to.deep.equal(expectedState.toJS());
     });
 
-    it('should set error on GET_TEAMS_ERORR', () => {
+    it('should set error on GET_TEAMS_ERROR', () => {
       const error = 'err_123';
       const expectedState = state.set('error', error);
-      const action = { payload: { error }, type: teamsActionsTypes.GET_TEAMS_ERORR };
+      const action = { payload: { error }, type: teamsActionsTypes.GET_TEAMS_ERROR };
       expect(teamsReducer(state, action).toJS()).to.deep.equal(expectedState.toJS());
     });
 
