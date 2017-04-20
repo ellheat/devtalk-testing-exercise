@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { fromJS, Map } from 'immutable';
+import { Map } from 'immutable';
 
 import teamsReducer from '../teams.reducer';
 import { teamsActionsTypes } from '../teams.actions';
